@@ -38,6 +38,11 @@ RUN apt-get update && apt-get install -y \
     && apt-get -y autoremove \
     && rm -rf /var/lib/apt/lists/*
 
+### Create ubuntu user for Labtainer framework
+
+RUN useradd -d /home/ubuntu -m -s /bin/bash ubuntu
+RUN echo ubuntu:ubuntu | chpasswd
+
 ### install current 'jq' explicitly
 RUN \
 { \
